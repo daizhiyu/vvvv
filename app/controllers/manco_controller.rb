@@ -9,6 +9,10 @@ class MancoController < ApplicationController
   def index
 
   end
+  def city
+    supplier_id=params[:supplier_id]
+    @supplier = Ecstore::Supplier.find(supplier_id)
+  end
   def map
     supplier_id=params[:supplier_id]
     @supplier = Ecstore::Supplier.find(supplier_id)
@@ -163,6 +167,19 @@ class MancoController < ApplicationController
     end
   end
 
+
+  def l_express
+    distribution=params[:distribution]
+    if distribution=="l_self"
+      @dis="本地自提"
+    elsif distribution=="l_door"
+      @dis="本地门对门"
+     end
+    @line_items.delete_all ###本地落地配服务
+    @goods=Ecstore::Good.find_by_cat_id(Ecstore::GoodCat.find_by_cat_name(@dis).cat_id)
+
+
+  end
 
  def express
    if @user

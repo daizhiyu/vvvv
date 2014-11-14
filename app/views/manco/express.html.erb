@@ -27,18 +27,25 @@
    <br/>  <div class="am-input-group am-input-group-lg">
   <span class="am-input-group-label">派送方式&nbsp;&nbsp;</span>
     </div>
+  <br/>
+  <ul class="am-navbar-nav am-cf sm-block-grid-2">
 
-  <div class="am-input-group am-input-group-lg">
-    <label class="am-input-group-label" >
-     <input type="radio"  name="distribution" value="586">门对门
-    </label>
-    <label class="am-input-group-label"  >
- <input type="radio"  name="distribution" value="587">自提
-  </label>
+    <li class=" am-btn am-btn-primary am-btn-block am-animation-slide-left">
 
-  </div>
+      <input  type="radio"  name="distribution" value="586">门对门
+    </li>
+    <li class=" am-btn am-btn-secondary am-btn-block am-animation-slide-right" style="margin-top: 0px">
 
-      <br>
+      <input type="radio"  name="distribution" value="587">自提
+    </li>
+
+
+
+  </ul>
+
+
+
+  <hr data-am-widget="divider" style="" class="am-divider am-divider-default am-no-layout">
 
   <div class="am-cf">
     <input type="button" id="serach" data-url="/manco/mancoluodipei" name="" value="下一步" class="am-btn am-btn-primary am-btn-block ">
@@ -154,6 +161,10 @@
 
     })
 
+    $(".am-btn-block").bind("click",function(){
+        $(this).children("input[type='radio']").attr("checked",'true');
+
+    })
 
 </script>
 

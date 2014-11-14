@@ -75,7 +75,7 @@
         <div class="am-panel-hd">
           <label for="addr_def_addr"><%=I18n.t "set_default"%><em style="color: #ff0000">(选择设置为当前默认地址)</em>:</label>
           <%#=f.label :def_addr, "设置默认："%>  </div>
-        <div class="am-panel-bd">
+        <div class="am-panel-bd" id="choose_default">
           <%=f.check_box :def_addr, {}, 1, 0 %><span><%=I18n.t "default"%></span>
           <span class="help-inline error"></span>
         </div>
@@ -96,6 +96,11 @@
 <%end%>
 <script type="application/javascript">
     $(document).ready(function(){
+        $("#choose_default").bind("click",function(){
+
+            checkbox($("#addr_def_addr"));
+        })
+
         $("#sub").bind("click",function(){
             if( $("#addr_name").val()=="" &&$("#addr_mobile").val()==""||$("#addr").val()=="") {
                 alert("请完善联系人信息")

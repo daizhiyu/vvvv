@@ -1,0 +1,2 @@
+module Cheuks::ServiceHelper
+end

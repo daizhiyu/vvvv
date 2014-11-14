@@ -1,0 +1,2 @@
+module Cheuksgroup::RongdaHelper
+end

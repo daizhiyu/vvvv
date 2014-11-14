@@ -102,15 +102,17 @@ class Store::CartController < ApplicationController
       supplier_id = 78
 
      end
-    if params[:platform]=="mobile"
+    if params[:platform]=="mobile" && supplier_id=="98"
       redirect_to "/cart/mobile?supplier_id=#{supplier_id}"
       #render "mobile", :layout=>@supplier.layout
 
-    elsif params[:platform]=="manco_card"
-      ###万家充值
+    elsif params[:platform]=="manco_card" && supplier_id=="98"
+      ###万家充值"
       redirect_to "/orders/manco_card?supplier_id=#{supplier_id}"
 
-    elsif params[:platform]
+    elsif params[:platform]=="manco_local" && supplier_id=="98"
+      redirect_to "/orders/arrival?supplier_id=#{supplier_id}&platform=#{params[:platform]}&member_departure_id=nil"
+    elsif params[:platform] && supplier_id=="98"
       ###万家门对门
       redirect_to "/orders/departure?supplier_id=#{supplier_id}&platform=#{params[:platform]}"
 
